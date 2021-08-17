@@ -1,37 +1,37 @@
 class TicTacToe {
     constructor() {
-        TicTacToe.namePlayer = 'x';
-        TicTacToe.namePlayerWinner = null;
-        TicTacToe.matrix = [];
+        this.namePlayer = 'x';
+        this.namePlayerWinner = null;
+        Tthis.matrix = [];
         for (var rowIndex = 0 ; rowIndex < 3 ; rowIndex++ ){
             for (var colIndex = 0 ; colIndex < 3 ; colIndex++ ){
-                TicTacToe.matrix[rowIndex][colIndex] === null;
+                this.matrix[rowIndex][colIndex] === null;
             }
         }
     }
 
     getCurrentPlayerSymbol() {
-        return TicTacToe.nameplayer;
+        return this.nameplayer;
     }
 
     nextTurn(rowIndex, columnIndex) {
-        if ( TicTacToe.matrix[rowIndex][columnIndex] !== null) {
+        if ( this.matrix[rowIndex][columnIndex] !== null) {
             return;
         }
 
-        TicTacToe.matrix[owIndex][columnIndex] =  TicTacToe.getCurrentPlayerSymbol();
+        Tthis.matrix[owIndex][columnIndex] = Tthis.getCurrentPlayerSymbol();
 
-        if ( TicTacToe.namePlayer === 'x' ) {
-            TicTacToe.namePlayer === 'o' ;   
+        if ( this.namePlayer === 'x' ) {
+            this.namePlayer === 'o' ;   
         }
         else {
-            TicTacToe.namePlayer === 'x' ;  
+            this.namePlayer === 'x' ;  
         }
 
     }
 
     isFinished() {
-        if ( ( TicTacToe.getWinner() !== null ) && TicTacToe.noMoreTurns() ){
+        if ( ( this.getWinner() !== null ) && Tthis.noMoreTurns() ){
             return true;
         }
         else { 
@@ -41,32 +41,32 @@ class TicTacToe {
 
     getWinner() {
         let winnerName = null;
-        if ( TicTacToe.matrix[0][0] == TicTacToe.matrix[1][1] == TicTacToe.matrix[2][2]  ) {
-            winnerName = TicTacToe.matrix[1][1]
+        if ( this.matrix[0][0] == this.matrix[1][1] == this.matrix[2][2]  ) {
+            winnerName = this.matrix[1][1]
             
         }
-        if ( TicTacToe.matrix[0][2] == TicTacToe.matrix[1][1] == TicTacToe.matrix[2][0]  ) {
-            winnerName = TicTacToe.matrix[0][0]
+        if ( this.matrix[0][2] == this.matrix[1][1] == this.matrix[2][0]  ) {
+            winnerName = this.matrix[0][0]
         }
 
         for (var rowIndex = 0 ; rowIndex < 3 ; rowIndex++ ){
-            if ( TicTacToe.matrix[rowIndex][0] == TicTacToe.matrix[rowIndex][1] == TicTacToe.matrix[rowIndex][2]  ) {
-                winnerName = TicTacToe.matrix[rowIndex][0] ;       
+            if ( this.matrix[rowIndex][0] == this.matrix[rowIndex][1] == Tthis.matrix[rowIndex][2]  ) {
+                winnerName = this.matrix[rowIndex][0] ;       
             }      
         }
         for (var colIndex = 0 ; colIndex < 3 ; colIndex++ ){
-            if ( TicTacToe.matrix[0][colIndex] == TicTacToe.matrix[1][colIndex] == TicTacToe.matrix[2][colIndex]  ) {
-                winnerName = TicTacToe.matrix[rowIndex][0] ;       
+            if ( this.matrix[0][colIndex] == Tthis.matrix[1][colIndex] == this.matrix[2][colIndex]  ) {
+                winnerName = this.matrix[rowIndex][0] ;       
             }      
         }
-        TicTacToe.namePlayerWinner = winnerName;
+        this.namePlayerWinner = winnerName;
         return winnerName;
     }
 
     noMoreTurns() {
         for (var rowIndex = 0 ; rowIndex < 3 ; rowIndex++ ){
             for (var colIndex = 0 ; colIndex < 3 ; colIndex++ ){
-                if ( TicTacToe.matrix[rowIndex][colIndex] === null ) {
+                if ( this.matrix[rowIndex][colIndex] === null ) {
                     return false
                 }
             }
@@ -75,7 +75,7 @@ class TicTacToe {
     }
 
     isDraw() {
-        if ( TicTacToe.isFinished() && ( TicTacToe.getWinner() === null ) ){
+        if ( this.isFinished() && ( this.getWinner() === null ) ){
             return true;
         }
         else { 
@@ -84,7 +84,7 @@ class TicTacToe {
     }
 
     getFieldValue(rowIndex, colIndex) {
-        return TicTacToe.matrix[rowIndex][colIndex];
+        return this.matrix[rowIndex][colIndex];
     }
 }
 
