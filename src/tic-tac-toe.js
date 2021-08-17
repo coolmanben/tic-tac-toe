@@ -29,7 +29,7 @@ class TicTacToe {
     }
 
     isFinished() {
-        if ( ( this.getWinner() !== null ) && this.noMoreTurns() ){
+        if ( ( this.getWinner() !== null ) || this.noMoreTurns() ){
             return true;
         }
         else { 
@@ -39,21 +39,20 @@ class TicTacToe {
 
     getWinner() {
         let winnerName = null;
-        if ( this.matrix[0][0] === this.matrix[1][1] === this.matrix[2][2]  ) {
-            winnerName = this.matrix[1][1]
-            
+        if ( ( this.matrix[0][0] === this.matrix[1][1] ) && ( this.matrix[1][1] === this.matrix[2][2] ) )  {
+          winnerName = this.matrix[1][1]           
         }
-        if ( this.matrix[0][2] === this.matrix[1][1] === this.matrix[2][0]  ) {
-            winnerName = this.matrix[0][0]
+        if ( ( this.matrix[0][2] === this.matrix[1][1] ) && (this.matrix[1][1] === this.matrix[2][0] ) ) {
+            winnerName = this.matrix[1][1]
         }
 
         for (var rowIndex = 0 ; rowIndex < 3 ; rowIndex++ ){
-            if ( this.matrix[rowIndex][0] === this.matrix[rowIndex][1] === this.matrix[rowIndex][2]  ) {
+            if ( ( this.matrix[rowIndex][0] === this.matrix[rowIndex][1] ) && (this.matrix[rowIndex][1] === this.matrix[rowIndex][2] ) ) {
                 winnerName = this.matrix[rowIndex][0]        
             }      
         }
         for (var colIndex = 0 ; colIndex < 3 ; colIndex++ ){
-            if ( this.matrix[0][colIndex] === this.matrix[1][colIndex] === this.matrix[2][colIndex]  ) {
+            if ( ( this.matrix[0][colIndex ] === this.matrix[1][colIndex ] ) && (this.matrix[1][colIndex ] === this.matrix[2][colIndex ] ) )  {
                 winnerName = this.matrix[0][colIndex] ;       
             }      
         }
